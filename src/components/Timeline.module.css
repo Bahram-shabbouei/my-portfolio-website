@@ -1,0 +1,25 @@
+/* src/components/Timeline.module.css */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Die zentrale vertikale Linie */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #0369a1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px; /* Zentriert die 6px breite Linie */
+}
+
+/* Responsives Design: Linie nach links verschieben */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 31px; /* Positioniert die Linie passend zu den Punkten auf mobil */
+  }
+}

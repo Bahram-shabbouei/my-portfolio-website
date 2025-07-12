@@ -1,0 +1,33 @@
+/* src/pages/PortfolioPage.module.css */
+
+.aboutText,
+.contactIntro {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.aboutText p:last-child {
+  margin-top: 1rem;
+}
+
+.contactHeader {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contactSubheader {
+  margin-bottom: 2rem;
+  color: #475569; /* slate-600 */
+}
+
+.contactFullFormHeader {
+  margin-top: 4rem; /* Abstand zwischen den beiden Formularen */
+}
+
+.placeholderText {
+  text-align: center;
+  color: #64748b; /* slate-500 */
+}

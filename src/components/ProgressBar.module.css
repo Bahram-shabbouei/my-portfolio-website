@@ -1,0 +1,11 @@
+/* src/components/ProgressBar.module.css */
+.progressWrapper {
+  margin-bottom: 1.25rem;
+}
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+/* ... (und die restlichen Stile für .label, .level, .progressBar, .progressFill) */

@@ -1,0 +1,115 @@
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 10px 40px;
+}
+
+/* Der Punkt auf der Timeline */
+.dot {
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 4px solid #0369a1; /* Gleiches Blau wie im Hero */
+  border-radius: 50%;
+  z-index: 1; /* Stellt sicher, dass der Punkt über der Linie liegt */
+}
+
+/* Positionierung für linke Einträge */
+.left {
+  left: 0;
+  text-align: right;
+}
+
+/* Positionierung für rechte Einträge */
+.right {
+  left: 50%;
+}
+
+/* Positionierung des Punktes für linke Einträge */
+.left .dot {
+  right: -10px; /* Positioniert den Punkt auf der Mittellinie */
+}
+
+/* Positionierung des Punktes für rechte Einträge */
+.right .dot {
+  left: -10px; /* Positioniert den Punkt auf der Mittellinie */
+}
+
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.date {
+  font-size: 0.875rem; /* 14px */
+  color: #0369a1;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 1rem; /* 16px */
+  color: #475569; /* slate-600 */
+  font-style: italic;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #64748b; /* slate-500 */
+  margin-top: 10px;
+}
+
+/* Pfeil für die Content-Boxen */
+.content::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+
+.left .content::after {
+  right: -20px;
+  border-left-color: white;
+}
+
+.right .content::after {
+  left: -20px;
+  border-right-color: white;
+}
+
+/* Responsives Design für mobile Geräte */
+@media screen and (max-width: 768px) {
+  .timelineItem {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    text-align: left; /* Alles linksbündig auf mobil */
+  }
+
+  .left, .right {
+    left: 0;
+  }
+
+  .dot {
+    left: 20px; /* Punkt auf die linke Seite verschieben */
+  }
+
+  .content::after {
+    left: -20px;
+    border-right-color: white;
+    border-left-color: transparent;
+  }
+}

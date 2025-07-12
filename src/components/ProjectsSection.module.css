@@ -1,0 +1,6 @@
+/* src/components/ProjectsSection.module.css */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsives Grid */
+  gap: 2rem; /* Abstand zwischen den Karten */
+}

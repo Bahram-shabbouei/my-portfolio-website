@@ -1,0 +1,63 @@
+/* src/components/Layout.module.css */
+.header {
+  position: sticky; /* Hält die Navigation beim Scrollen oben */
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 2rem; /* Abstand zwischen den Links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: #334155; /* slate-700 */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: #0369a1; /* Unser Blau */
+}
+
+/* Unterstrich-Effekt beim Hover */
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0369a1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.footer {
+  background-color: #0f172a; /* slate-900 */
+  color: #cbd5e1; /* slate-300 */
+  text-align: center;
+  padding: 2rem 1rem;
+}
