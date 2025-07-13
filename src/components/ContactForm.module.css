@@ -1,0 +1,8 @@
+/* src/components/ContactForm.module.css */
+/* ... (andere Stile) */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}

@@ -8,8 +8,8 @@ import Section from '../components/Section';
 import Timeline from '../components/Timeline';
 import SkillsSection from '../components/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection';
-// import ShortContactForm from '../components/ShortContactForm';
-// import FullContactForm from '../components/FullContactForm';
+ import ShortContactForm from '../components/ShortContactForm';
+ import FullContactForm from '../components/FullContactForm';
 
 // Import der Typdefinitionen mit "type"
 import { type TimelineEvent } from '../types/timeline';
@@ -73,17 +73,15 @@ const PortfolioPage: React.FC = () => {
       </Section>
 
       {/* ------------------- KONTAKT SEKTION ------------------- */}
-      <Section title="Kontakt" id="kontakt">
+     <Section title="Kontakt" id="kontakt">
         <div className={`container ${styles.contactIntro}`}>
           <h3 className={styles.contactHeader}>Haben Sie eine kurze Frage?</h3>
           <p className={styles.contactSubheader}>Hinterlassen Sie einfach Ihren Namen und Ihre E-Mail, ich melde mich bei Ihnen.</p>
-          {/* <ShortContactForm /> */}
-          <p className={styles.placeholderText}>[Hier kommt das kurze Kontaktformular hin]</p>
+          <ShortContactForm /> {/* Hier einfügen */}
 
           <h3 className={`${styles.contactHeader} ${styles.contactFullFormHeader}`}>Möchten Sie mir eine detaillierte Nachricht senden?</h3>
           <p className={styles.contactSubheader}>Nutzen Sie das vollständige Formular, um Ihr Anliegen zu beschreiben.</p>
-          {/* <FullContactForm /> */}
-          <p className={styles.placeholderText}>[Hier kommt das vollständige Kontaktformular hin]</p>
+          <FullContactForm /> {/* Hier einfügen */}
         </div>
       </Section>
     </>
