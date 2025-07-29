@@ -1,45 +1,52 @@
+// src/components/SkillsSection.tsx
 import React from 'react';
-import ProgressBar from './ProgressBar'; // Importieren wir gleich
+import ProgressBar from './ProgressBar';
 import styles from './SkillsSection.module.css';
+import type { TechSkill, LanguageSkill } from '../types/skills'; // Importiere die Typen
 
-// Daten für die Skills
-const pcSkills = [
-  { name: 'JavaScript', level: 85 },
-  { name: 'TypeScript', level: 80 },
-  { name: 'React', level: 90 },
-  { name: 'Node.js', level: 75 },
-  { name: 'HTML & CSS', level: 95 },
-  { name: 'SQL (Postgres/SQLite)', level: 70 },
-  { name: 'Git & GitHub', level: 85 },
+// Daten für die Skills (später können diese auch als Props übergeben werden)
+const techSkills: TechSkill[] = [
+  { name: "AutoCad Electrical", level: 80, levelText: "gute Kenntnisse" },
+  { name: "MS-Office", level: 95, levelText: "sehr gute Kenntnisse" },
+  { name: "Photoshop", level: 30, levelText: "Grundkenntnisse" },
+  { name: "Google Sites", level: 80, levelText: "gute Kenntnisse" },
+  { name: "HTML & CSS", level: 80, levelText: "gute Kenntnisse" },
+  { name: "PHP", level: 30, levelText: "Grundkenntnisse" },
+  { name: "JavaScript", level: 80, levelText: "gute Kenntnisse" },
+  { name: "React", level: 80, levelText: "gute Kenntnisse" },
+  { name: "Python", level: 80, levelText: "gute Kenntnisse" },
 ];
 
-const languageSkills = [
-  { name: 'Persisch', level: 'Muttersprache' },
-  { name: 'Deutsch', level: 'C1 - Fachkundige Sprachkenntnisse' },
-  { name: 'Englisch', level: 'B2 - Selbständige Sprachverwendung' },
+const languageSkills: LanguageSkill[] = [
+  { name: "Deutsch", level: "B1/B2 (GER)" },
+  { name: "Englisch", level: "Gut" },
+  { name: "Türkisch", level: "Muttersprache" },
+  { name: "Persisch", level: "Exzellente Kenntnisse" },
 ];
 
 const SkillsSection: React.FC = () => {
   return (
-    <div className={styles.skillsContainer}>
-      {/* Linke Spalte: PC-Kenntnisse */}
-      <div className={styles.skillColumn}>
-        <h3 className={styles.columnTitle}>PC-Kenntnisse</h3>
-        <div className={styles.progressList}>
-          {pcSkills.map((skill) => (
-            <ProgressBar key={skill.name} label={skill.name} level={skill.level} />
+    <div className={styles.skillsGrid}>
+      {/* PC-Kenntnisse */}
+      <div className={styles.skillCategory}>
+        <h3>PC-Kenntnisse</h3>
+        <div className={styles.techSkillsList}>
+          {techSkills.map((skill) => (
+            <div key={skill.name} className={styles.skillItem}>
+              <span>{skill.name}</span>
+              <ProgressBar level={skill.level} levelText={skill.levelText} />
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Rechte Spalte: Sprachkenntnisse */}
-      <div className={styles.skillColumn}>
-        <h3 className={styles.columnTitle}>Sprachkenntnisse</h3>
+      {/* Sprachkenntnisse */}
+      <div className={styles.skillCategory}>
+        <h3>Sprachkenntnisse</h3>
         <ul className={styles.languageList}>
-          {languageSkills.map((skill) => (
-            <li key={skill.name} className={styles.languageItem}>
-              <span className={styles.languageName}>{skill.name}</span>
-              <span className={styles.languageLevel}>{skill.level}</span>
+          {languageSkills.map((language) => (
+            <li key={language.name}>
+              <strong>{language.name}:</strong> {language.level}
             </li>
           ))}
         </ul>

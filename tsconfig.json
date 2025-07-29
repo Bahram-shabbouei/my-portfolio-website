@@ -1,4 +1,10 @@
+// tsconfig.json
 {
+  "compilerOptions": {
+    // Diese Optionen werden von den referenzierten Dateien geerbt
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

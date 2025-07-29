@@ -1,6 +1,22 @@
 /* src/components/ProjectsSection.module.css */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsives Grid */
-  gap: 2rem; /* Abstand zwischen den Karten */
+  grid-template-columns: 1fr; /* Eine Spalte für Mobilgeräte */
+  gap: 2rem; /* Abstand zwischen den Projektkarten */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Zwei Spalten für Tablets */
+@media (min-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Optional: Drei Spalten für sehr große Bildschirme */
+@media (min-width: 1200px) {
+  .projectsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

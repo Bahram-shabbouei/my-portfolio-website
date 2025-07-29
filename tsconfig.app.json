@@ -1,3 +1,4 @@
+// tsconfig.app.json (ANGEPASSTE VERSION)
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
@@ -16,7 +17,8 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    "strict": true,
+    "strict": true, // Dieser sollte schon da sein und ist SEHR WICHTIG
+    "forceConsistentCasingInFileNames": true, // <-- DIESEN HINZUFÜGEN (falls er fehlt)
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,

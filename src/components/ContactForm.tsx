@@ -12,7 +12,11 @@ const ContactForm: React.FC = () => {
     submitStatus,
     handleChange,
     handleSubmit,
-  } = useContactForm();
+  } = useContactForm({
+    name: '',
+    email: '',
+    message: ''
+  });
 
   return (
     <form onSubmit={handleSubmit} noValidate className={styles.form}>

@@ -1,59 +1,58 @@
 /* src/components/ProjectCard.module.css */
 .card {
   background-color: white;
-  border: 1px solid #e2e8f0; /* slate-200 */
   border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  overflow: hidden; /* Stellt sicher, dass das Bild die abgerundeten Ecken nicht überlappt */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Wichtig für das Grid-Layout, damit alle Karten gleich hoch sind */
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px; /* Feste Höhe für die Bilder */
+  object-fit: cover; /* Stellt sicher, dass das Bild den Bereich füllt, ohne verzerrt zu werden */
+}
+
+.cardContent {
   padding: 1.5rem;
   display: flex;
-  flex-direction: column; /* Stellt sicher, dass die Links unten sind */
-  transition: transform 0.2s, box-shadow 0.2s;
+  flex-direction: column;
+  flex-grow: 1; /* Sorgt dafür, dass dieser Bereich den restlichen Platz einnimmt */
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-.title {
+.cardTitle {
   font-size: 1.25rem; /* 20px */
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b; /* slate-800 */
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.cardRole {
+  font-size: 0.875rem; /* 14px */
+  color: #475569; /* slate-600 */
   margin-bottom: 1rem;
 }
 
-.tag {
-  background-color: #f1f5f9; /* slate-100 */
-  color: #475569; /* slate-600 */
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px; /* Pillenform */
-  font-size: 0.75rem; /* 12px */
-  font-weight: 500;
-}
-
-.description {
-  color: #64748b; /* slate-500 */
-  font-size: 0.9rem;
+.cardDescription {
+  font-size: 1rem;
   line-height: 1.6;
-  flex-grow: 1; /* Sorgt dafür, dass die Beschreibung den verfügbaren Platz füllt */
+  color: #334155; /* slate-700 */
+  flex-grow: 1; /* Sorgt dafür, dass die Beschreibung den Platz füllt und die Buttons nach unten drückt */
   margin-bottom: 1.5rem;
 }
 
-.links {
+.cardActions {
   display: flex;
   gap: 1rem;
-  margin-top: auto; /* Drückt die Links an den unteren Rand der Karte */
+  margin-top: auto; /* Drückt die Buttons an den unteren Rand der Karte */
 }
 
 .button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #0369a1; /* Unser Blau */
+  background-color: #0369a1; /* Hauptblau */
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -66,12 +65,12 @@
   background-color: #0284c7; /* Helleres Blau */
 }
 
-.buttonOutline {
+.buttonSecondary {
   background-color: transparent;
   color: #0369a1;
   border: 1px solid #0369a1;
 }
 
-.buttonOutline:hover {
-  background-color: rgba(3, 105, 161, 0.1);
+.buttonSecondary:hover {
+  background-color: #f0f9ff; /* Sehr helles Blau */
 }

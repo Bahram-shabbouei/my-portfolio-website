@@ -1,15 +1,19 @@
-// src/App.tsx (NEUE, VEREINFACHTE VERSION)
+// src/App.tsx
 import React from 'react';
-import Layout from './components/Layout';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PortfolioPage from './pages/PortfolioPage';
+import FullContactPage from './pages/FullContactPage'; // Neue Seite für das volle Formular
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <Layout>
-      {/* Die PortfolioPage wird als "Kind" an das Layout übergeben */}
-      <PortfolioPage />
-    </Layout>
+    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/my-portfolio-website"}>
+      <Routes>
+        <Route path="/" element={<Layout><PortfolioPage /></Layout>}>
+        </Route>
+        <Route path="kontakt" element={<Layout><FullContactPage /></Layout>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
