@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 /* Setzt eine moderne Box-Sizing-Regel für alle Elemente */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -9,8 +12,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f8fafc; /* Ein sehr helles Grau, ähnlich wie Tailwind's "slate-50" */
-  color: #0f172a; /* Ein dunkles Grau/Schwarz, ähnlich wie Tailwind's "slate-900" */
+  background-color: #6f7378; /* Ein sehr helles Grau, ähnlich wie Tailwind's "slate-50" */
+  color: #16284bf2; /* Ein dunkles Grau/Schwarz, ähnlich wie Tailwind's "slate-900" */
 }
 
 /* Hilfsklasse, die wir später für Container verwenden können */

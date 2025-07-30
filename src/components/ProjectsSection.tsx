@@ -8,23 +8,32 @@ import type { Project } from '../types/projects';
 const projects: Project[] = [
   {
     id: 1,
-    title: "Meine persönliche Portfolio-Website",
-    role: "Webentwickler (Front-end), UI/UX Conceptualizer, Content Integrator",
-    description: "Ich habe diese persönliche Portfolio-Website konzipiert und mitentwickelt, um meine Fähigkeiten im Bereich Webentwicklung und meine beruflichen Erfahrungen effektiv zu präsentieren. Der Entwicklungsprozess umfasste die Definition der Nutzeranforderungen, das Design der Benutzeroberfläche (UI) und der Benutzererfahrung (UX) durch iterative Frage-Antwort-Zyklen, die Strukturierung und Integration von Inhalten sowie die Auswahl geeigneter Frontend-Technologien (React, TypeScript, Vite).",
-    // Füge hier einen Link zu einem Vorschaubild hinzu, wenn du eines hast (z.B. ein Screenshot deiner Seite)
-    imageUrl: "/project-preview.jpg", // Lege dieses Bild in den `public`-Ordner
-    projectUrl: "https://Bahram-shabbouei.github.io/my-portfolio-website/", // Dein Live-Link
-    repoUrl: "https://github.com/Bahram-shabbouei/my-portfolio-website" // Dein Repo-Link
+    title: "Agile To-Do-Anwendung (Scrum-Projekt)",
+    role: "Lead-Entwickler (UI, State Management, CRUD)",
+    description: "Ein agiles Projekt zur Erstellung einer To-Do-Anwendung, das ich ganzheitlich entwickelte. Meine Aufgaben umfassten die Entwicklung von UI-Komponenten, die Verwaltung des Anwendungszustands und die Implementierung von CRUD-Operationen (Create, Read, Update, Delete) für Aufgaben. Das Projekt wurde nach den Prinzipien von Scrum mit Sprints, User Stories und einem Product Backlog durchgeführt.",
+    // Hier könntest du einen Link zum GitHub-Repo des Team-Projekts einfügen
+    repoUrl: "https://github.com/dein-team/to-do-app-scrum-projekt" // BITTE ANPASSEN
+  },
+
+  {
+    id: 2,
+    title: "Project Naght Crowler (Team-Projekt)",
+    role: "Backend-Entwickler (Python, Flask, MongoDB) ",
+    description: "Mitarbeit in einem Team zur Entwicklung einer Webanwendung mit einem Python-Backend. Meine Hauptverantwortung lag in der Implementierung von API-Endpunkten mit dem Flask-Framework und der Anbindung an eine MongoDB-Datenbank zur Datenpersistenz.f",
+    imageUrl:"../../public/project-preview3.png",
+   // projectUrl: "https://Bahram-shabbouei.github.io/my-portfolio-website/", // Dein Live-Link
+    repoUrl: "https://github.com/MrRobob/Project-Night-Crawler" // Dein Repo-Link
   },
   // Hier könnten weitere Projekte hinzugefügt werden
-  // {
-  //   id: 2,
-  //   title: "Projekt 2",
-  //   role: "Backend-Entwickler",
-  //   description: "Eine kurze Beschreibung des zweiten Projekts.",
-  //   projectUrl: "#",
-  //   repoUrl: "#"
-  // }
+    {
+    id: 3,
+    title: "Persönliche Portfolio-Website (Dieses Projekt)",
+    role: "Full-Stack Entwickler (React, Node.js)",
+    description: "Eigenständige Konzeption und Entwicklung dieser Single-Page-Application. Das Frontend wurde mit React, TypeScript und Vite realisiert. Das separate Backend auf Basis von Node.js/Express verarbeitet API-Anfragen, speichert Daten in einer SQLite-Datenbank und versendet automatisierte E-Mails.",
+    imageUrl: "/project-portfolio.jpg", // Dein Screenshot
+    //projectUrl: "https://bahram-shabbouei.github.io/my-portfolio-website/", // when Project deployed can be used. 
+    repoUrl: "https://github.com/Bahram-shabbouei/my-portfolio-website"
+  },
 ];
 
 const ProjectsSection: React.FC = () => {
