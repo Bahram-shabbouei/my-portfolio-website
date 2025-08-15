@@ -1,6 +1,7 @@
-/* src/components/Layout.module.css */
+/* src/components/Layout.module.css (AKTUALISIERTE VERSION) */
+
 .header {
-  position: sticky; /* Hält die Navigation beim Scrollen oben */
+  position: sticky;
   top: 0;
   width: 100%;
   background-color: white;
@@ -8,23 +9,25 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* Das 'nav'-Element wird zum Haupt-Flex-Container */
 .nav {
   display: flex;
-  justify-content: center;
-  height: 60px;
+  justify-content: space-between; /* Verteilt den Platz: links, mitte, rechts */
   align-items: center;
+  height: 60px;
 }
 
+/* Die Haupt-Navigationsliste (Text-Links) */
 .navList {
   display: flex;
-  gap: 2rem; /* Abstand zwischen den Links */
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navLink {
-  color: #334155; /* slate-700 */
+  color: #334155;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0;
@@ -33,10 +36,9 @@
 }
 
 .navLink:hover {
-  color: #0369a1; /* Unser Blau */
+  color: #0369a1;
 }
 
-/* Unterstrich-Effekt beim Hover */
 .navLink::after {
   content: '';
   position: absolute;
@@ -55,9 +57,53 @@
   transform-origin: bottom left;
 }
 
+/* NEU: Stile für die Seitenbereiche der Navigation */
+.navSide {
+  flex: 1; /* Nimmt den verfügbaren Platz ein */
+}
+
+/* NEU: Stile für die Social-Icons in der Navigation */
+.navSocials {
+  display: flex;
+  justify-content: flex-end; /* Richtet die Icons rechts aus */
+  align-items: center;
+  gap: 1rem; /* Abstand zwischen den Icons */
+}
+
+.socialIconLink {
+  color: #475569; /* Etwas dezenteres Grau (slate-600) */
+  font-size: 1.5rem; /* Größe der Icons */
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.socialIconLink:hover {
+  color: #0369a1; /* Wird beim Hover blau */
+  transform: scale(1.1);
+}
+
+/* Footer-Stile bleiben größtenteils gleich */
 .footer {
-  background-color: #0f172a; /* slate-900 */
-  color: #cbd5e1; /* slate-300 */
+  background-color: #0f172a;
+  color: #cbd5e1;
   text-align: center;
   padding: 2rem 1rem;
+}
+
+.footerSocials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.footerSocials a {
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.footerSocials a:hover {
+  color: #e2e8f0;
 }

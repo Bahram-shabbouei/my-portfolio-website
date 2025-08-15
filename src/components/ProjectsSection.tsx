@@ -11,6 +11,7 @@ const projects: Project[] = [
     title: "Agile To-Do-Anwendung (Scrum-Projekt)",
     role: "Lead-Entwickler (UI, State Management, CRUD)",
     description: "Ein agiles Projekt zur Erstellung einer To-Do-Anwendung, das ich ganzheitlich entwickelte. Meine Aufgaben umfassten die Entwicklung von UI-Komponenten, die Verwaltung des Anwendungszustands und die Implementierung von CRUD-Operationen (Create, Read, Update, Delete) für Aufgaben. Das Projekt wurde nach den Prinzipien von Scrum mit Sprints, User Stories und einem Product Backlog durchgeführt.",
+    imageUrl:"../../public/project-preview1.png",
     // Hier könntest du einen Link zum GitHub-Repo des Team-Projekts einfügen
     repoUrl: "https://github.com/dein-team/to-do-app-scrum-projekt" // BITTE ANPASSEN
   },

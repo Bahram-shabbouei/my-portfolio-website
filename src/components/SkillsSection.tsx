@@ -24,6 +24,8 @@ const languageSkills: LanguageSkill[] = [
   { name: "Persisch", level: "Exzellente Kenntnisse" },
 ];
 
+// Die SkillsSection-Komponente
+// Diese Komponente zeigt die technischen und sprachlichen Fähigkeiten
 const SkillsSection: React.FC = () => {
   return (
     <div className={styles.skillsGrid}>
@@ -34,7 +36,7 @@ const SkillsSection: React.FC = () => {
           {techSkills.map((skill) => (
             <div key={skill.name} className={styles.skillItem}>
               <span>{skill.name}</span>
-              <ProgressBar level={skill.level} levelText={skill.levelText} />
+              <ProgressBar level={skill.level} skillName={skill.name} />
             </div>
           ))}
         </div>

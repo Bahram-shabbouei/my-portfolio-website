@@ -9,6 +9,9 @@ import ProjectsSection from '../components/ProjectsSection';
 import ShortContactForm from '../components/ShortContactForm';
 import type { TimelineEvent } from '../types/timeline';
 import styles from './PortfolioPage.module.css';
+// NEUE IMPORTS FÜR ICONS UND TYPEN
+import type { SocialLink } from '../types/socials.tsx';
+import { FaLinkedin, FaGithub, FaXingSquare } from 'react-icons/fa';
 
 // ==================================================================
 // 2. DATENDEFINITION (AKTUALISIERT MIT DEINEN DATEN)
@@ -46,9 +49,25 @@ const berufserfahrungEvents: TimelineEvent[] = [
     { id: 2, date: "03/2018", title: "Praktikum bei SBH Nord Betriebsstätte Berlin", subtitle: "Praktikum" },
     { id: 3, date: "08/2014 - 08/2015", title: "Barista, Monteur (als Asyl in der Türkei)", subtitle: "Diverse Tätigkeiten" },
     { id: 4, date: "07/2005 - 02/2010", title: "Qualitäts- & Laufzeitkontrolleur", subtitle: "Baufirma SANAYE DRYAIE SHAHID DARVICHY, Bandarabbas, Iran", description: "Kontrolle der Auftragserfüllung von Subunternehmen im Bereich Stromversorgung." },
-    { id: 5, date: "04/2004 - 06/2005", title: "Pojoohan Sepand Engineering Services", subtitle: "Projektbezogene Tätigkeit" }
+    { id: 5, date: "04/2004 - 06/2005", title: "Pajoohan Sepand Engineering Services", subtitle: "Projektbezogene Tätigkeit" }
 ];
-
+const socialLinks: SocialLink[] = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/bahram-shabbouei-hagh-31696890/', // <-- ERSETZE DAS!
+    icon: FaLinkedin
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/Bahram-shabbouei', // <-- ERSETZE DAS!
+    icon: FaGithub
+  },
+  {
+    name: 'Xing',
+    url: 'https://www.xing.com/profile/Bahram_ShabboueiHagh/web_profiles/',
+    icon: FaXingSquare
+  }
+];
 const PortfolioPage: React.FC = () => {
   return (
     <>
@@ -57,6 +76,7 @@ const PortfolioPage: React.FC = () => {
         title={heroData.title}
         intro={heroData.intro}
         imageUrl={heroData.imageUrl}
+        socials={socialLinks} 
       />
       <Section title="Über mich" id="ueber-mich">
         <div className={`${styles.aboutText} container`}>
@@ -84,7 +104,7 @@ const PortfolioPage: React.FC = () => {
             <h3>Haben Sie eine kurze Frage?</h3>
             <p>Hinterlassen Sie einfach Ihren Namen und Ihre E-Mail.</p>
             <ShortContactForm /> 
-            <h3 style={{marginTop: '2rem'}}>Möchten Sie mir Ihr Anliegen detaillierter mitteilen?</h3>
+            <h3 className={styles.marginTop2rem}>Möchten Sie mir Ihr Anliegen detaillierter mitteilen?</h3>
             <p>Nutzen Sie das vollständige Formular auf unserer Kontaktseite.</p>
             <a href="/kontakt" className={styles.fullContactLink}>
                 Zum detaillierten Kontaktformular

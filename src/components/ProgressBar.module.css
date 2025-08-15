@@ -1,25 +1,19 @@
-/* src/components/ProgressBar.module.css */
+/* src/components/ProgressBar.module.css (FINALE, KORRIGIERTE VERSION) */
 
-/* 
-  Dies ist der äußere Container des Fortschrittsbalkens.
-  Er ist immer sichtbar und hat die graue Hintergrundfarbe.
-*/
+/* Der äußere Container des Fortschrittsbalkens */
 .progressBarContainer {
   width: 100%;
   height: 12px;
-  background-color: #e2e8f0; /* Ein helles Grau, ähnlich wie Tailwind's "slate-200" */
-  border-radius: 9999px;     /* Macht die Ecken komplett rund, wie eine Pille */
-  overflow: hidden;          /* Sehr wichtig: Verhindert, dass das innere Element über die abgerundeten Ecken hinausragt */
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07); /* Ein subtiler innerer Schatten für mehr Tiefe */
+  background-color: #e2e8f0; /* Helles Grau */
+  border-radius: 9999px;     /* Runde Ecken */
+  overflow: hidden;          /* Wichtig, damit das innere Element nicht überläuft */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07); /* Subtiler innerer Schatten */
 }
 
-/* 
-  Dies ist das innere Element, das den Füllstand darstellt.
-  Seine Breite wird dynamisch in der React-Komponente gesetzt.
-*/
+/* Das innere Element, das den Füllstand darstellt */
 .progressBarFill {
   height: 100%;
-  background-color: #0369a1; /* Unser primärer Blauton */
-  border-radius: 9999px;     /* Hat ebenfalls abgerundete Ecken */
-  transition: width 0.5s ease-in-out; /* Sorgt für eine sanfte Animation, wenn sich der Wert ändert */
+  background-color: #0369a1; /* Unser Hauptblau */
+  border-radius: 9999px;
+  transition: width 0.5s ease-in-out; /* Sanfte Animation */
 }

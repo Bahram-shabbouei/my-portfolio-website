@@ -1,17 +1,21 @@
 // src/App.tsx
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PortfolioPage from './pages/PortfolioPage';
-import FullContactPage from './pages/FullContactPage'; // Neue Seite für das volle Formular
+import FullContactPage from './pages/FullContactPage';
 import Layout from './components/Layout';
 
 function App() {
+  // Diese Zeile prüft, ob wir im Entwicklungsmodus sind.
+  // import.meta.env.DEV ist eine spezielle Variable von Vite.
+  const basename = import.meta.env.DEV ? "/" : "/my-portfolio-website";
+
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/my-portfolio-website"}>
+    <BrowserRouter basename={basename}>
       <Routes>
-        <Route path="/" element={<Layout><PortfolioPage /></Layout>}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<PortfolioPage />} />
+          <Route path="kontakt" element={<FullContactPage />} />
         </Route>
-        <Route path="kontakt" element={<Layout><FullContactPage /></Layout>} />
       </Routes>
     </BrowserRouter>
   );

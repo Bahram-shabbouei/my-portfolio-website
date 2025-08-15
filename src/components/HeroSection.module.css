@@ -16,3 +16,23 @@
   object-fit: cover;
 }
 /* ... (und die restlichen Stile für .heroName und .heroTitle) */
+
+/* ... (deine bestehenden Klassen wie .heroContainer, .profileImage etc.) */
+
+.heroSocials {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Abstand zwischen den Icons */
+}
+
+.heroSocials a {
+  color: white;
+  font-size: 2rem; /* Größe der Icons */
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.heroSocials a:hover {
+  color: #bae6fd; /* Ein helleres Blau beim Hover */
+  transform: scale(1.1); /* Macht das Icon etwas größer beim Hover */
+}
