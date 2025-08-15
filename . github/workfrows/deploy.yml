@@ -1,0 +1,79 @@
+# Dateiname: .github/workflows/deploy.yml
+
+# Name des Workflows, der in der "Actions"-Übersicht auf GitHub angezeigt wird
+name: Build, Lint and Deploy Portfolio to GitHub Pages
+
+# Trigger: Wann soll dieser Workflow automatisch starten?
+on:
+  # Startet bei jedem Push auf den 'main'-Branch
+  push:
+    branches:
+      - main
+  # Ermöglicht es, den Workflow auch manuell über die GitHub UI zu starten
+  workflow_dispatch:
+
+# Berechtigungen: Definiert, was dieser Workflow tun darf
+permissions:
+  contents: read      # Darf den Code des Repositories lesen
+  pages: write        # Darf auf GitHub Pages schreiben (deployen)
+  id-token: write     # Darf sich für das Deployment authentifizieren
+
+# Jobs: Die Aufgaben, die der Workflow ausführt
+jobs:
+  # Wir definieren einen Job mit dem Namen "build-and-deploy"
+  build-and-deploy:
+    # Umgebung: Gibt an, dass wir für GitHub Pages deployen
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Die URL der deployten Seite wird hier gespeichert
+
+    # Betriebssystem: Auf welchem System der Roboter läuft (Standard ist Ubuntu)
+    runs-on: ubuntu-latest
+    
+    # Schritte: Die einzelnen Anweisungen für den Roboter
+    steps:
+      # Schritt 1: Code aus dem Repository holen
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Schritt 2: PNPM (unseren Paketmanager) einrichten
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3 # Benutze eine aktuelle Version
+        with:
+          version: 8 # oder die Version, die du verwendest
+
+      # Schritt 3: Node.js Umgebung einrichten (wird für Vite/React benötigt)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Eine aktuelle LTS-Version ist gut
+          cache: 'pnpm' # Aktiviert das Caching für pnpm, um zukünftige Läufe zu beschleunigen
+
+      # Schritt 4: Alle Projektabhängigkeiten installieren
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile # '--frozen-lockfile' ist eine Best Practice für CI
+
+      # Schritt 5: Code-Qualität prüfen (führt das 'lint'-Skript aus deiner package.json aus)
+      # Wenn dieser Schritt fehlschlägt, bricht der gesamte Workflow ab.
+      - name: Run Linter for Code Quality
+        run: pnpm run lint
+
+      # Schritt 6: Die statische Website bauen (führt 'pnpm run build' aus)
+      # Dieser Befehl erstellt den 'dist'-Ordner
+      - name: Build Static Site
+        run: pnpm run build
+
+      # Schritt 7: GitHub Pages für das Artefakt-Upload vorbereiten
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Schritt 8: Das gebaute Artefakt (den Inhalt des 'dist'-Ordners) hochladen
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # Der Ordner, den Vite erstellt
+
+      # Schritt 9: Das hochgeladene Artefakt auf GitHub Pages veröffentlichen
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
