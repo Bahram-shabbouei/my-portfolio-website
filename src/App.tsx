@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PortfolioPage from './pages/PortfolioPage';
 import FullContactPage from './pages/FullContactPage';
 import Layout from './components/Layout';
-
+// Relative path for the contact page route.
+const CONTACT_ROUTE_PATH = 'contact';
 /**
  * Returns the base path the router should use.
  * This value comes directly from Vite's `base` config (see vite.config.ts),
